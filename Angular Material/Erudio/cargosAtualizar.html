@@ -1,0 +1,77 @@
+<md-content style="border-bottom:1px solid #eee">
+    <md-toolbar style="background-color:rgb(255,255,255); color:#202020 !important">
+        <div class="md-toolbar-tools">
+            <h2  flex md-truncate> Atualizar Cargo</h2>
+        </div>
+    </md-toolbar>
+</md-content>
+<div flex="auto" layout-padding layout="column" ng-cloak="" class="md-inline-form">
+    <md-content>
+        <md-content>
+            <form name="cargoAtualizarFormulario" ng-submit="cargoAtualizar(cargoCtrl.cargoAtualizarDetalhes.id,cargoCtrl.cargoAtualizarDetalhes.nome,cargoCtrl.cargoAtualizarDetalhes.professor,cargoCtrl.cargoAtualizarDetalhes.grupoId)"
+                novalidate>
+
+                <md-input-contanier class="md-block">
+                    <label>Selecione o cargo</label>
+                    <md-select name="cargoAtualizarDetalhesId" ng-change="cargoCtrl.cargoIdBuscarInformacao(cargoCtrl.cargoAtualizarDetalhes.id,cargoCtrl.cargoAtualizarDetalhes)"
+                        ng-model="cargoCtrl.cargoAtualizarDetalhes.id" required>
+                        <md-option ng-repeat="cargo in cargoCtrl.cargosLista" value="{{cargo.id}}">{{cargo.nome}}</option>
+                    </md-select>
+                </md-input-contanier>
+                
+
+                <label>Nome do Cargo:</label>
+
+                <input name="CargoAtualizarDetalhesNome" type="text" ng-model="cargoCtrl.cargoAtualizarDetalhes.nome" required>
+
+                <br>
+                <br>
+
+                <label>Professor:</label>
+
+                <select name="cargoAtualizarDetalhesProfessor" ng-model="cargoCtrl.cargoAtualizarDetalhes.professor" required>
+                    <option value="">Selecione</option>
+                    <option value="false">Não</option>
+                    <option value="true">Sim</option>
+                </select>
+
+                <br>
+                <br>
+
+                <label>Grupo:</label>
+
+                <select name="cargoAtualizarDetalhesGrupoId" ng-model="cargoCtrl.cargoAtualizarDetalhes.grupoId" required>
+                    <option value="-">Selecione</option>
+                    <option ng-repeat="grupo in gruposLista" value="{{grupo.id}}">
+                        {{grupo.nome}}
+                    </option>
+                </select>
+
+                <input type="submit" ng-disabled="cargoAtualizarFormulario.cargoAtualizarDetalhesId.$invalid || cargoAtualizarFormulario.CargoAtualizarDetalhesNome.$invalid || cargoAtualizarFormulario.cargoAtualizarDetalhesProfessor.$invalid || cargoAtualizarFormulario.cargoAtualizarDetalhesGrupoId.$invalid"
+                    value="Cadastrar">
+
+            </form>
+
+        </md-content>
+
+        <div>
+            <h3>Cargos Cadastrados</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>PROFESSOR</th>
+                    <th>GRUPO ID</th>
+                    <th>GRUPO NOME</th>
+                </tr>
+                <tr ng-repeat="cargo in cargoCtrl.cargosLista">
+                    <td>{{cargo.id}}</td>
+                    <td>{{cargo.nome}}</td>
+                    <td>{{cargo.professor}}</td>
+                    <td>{{cargo.grupo.id}}</td>
+                    <td>{{cargo.grupo.nome}}</td>
+                </tr>
+            </table>
+        </div>
+    </md-content>
+</div>
