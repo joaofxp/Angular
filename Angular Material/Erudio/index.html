@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html ng-app="moduloCargo">
+
+<head>
+    <title>Angular Material Study</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css">
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
+
+    <base href="/">
+</head>
+
+<body layout="row" ng-controller="cargoController as cargoCtrl">
+    <md-sidenav class="md-sidenav-left md-whiteframe-1dp" md-is-locked-open="true" flex="15">
+        <md-nav-bar md-no-ink-bar="true" style="margin-top:10px;">
+            <md-nav-item md-nav-click="goto('page1');" md-no-ink name="pagina1">
+                <md-button layout-fill > 
+                    <a href="cargosAtualizar" style="text-decoration: none !important"> Atualizar cargo</a>
+                </md-button>
+            </md-nav-item>
+            <md-nav-item md-nav-click="goto('page2')" md-no-ink name="pagina2">
+                <md-button layout-fill > 
+                    <a href="cargosCadastro"> Cadastro de cargos</a>
+                </md-button>
+            </md-nav-item>
+            <md-nav-item md-nav-click="goto('page3')" md-no-ink name="pagina3">
+                <md-button layout-fill > 
+                    <a href="cargosCadastrados"> Cargos cadastrados</a>
+                </md-button>
+            </md-nav-item>
+            <md-nav-item md-nav-click="goto('page3')" md-no-ink name="pagina4">
+                <md-button layout-fill > 
+                    <a href="cargosDetalhes"> Detalhes do cargo</a>
+                </md-button>
+            </md-nav-item>
+        </md-nav-bar>
+    </md-sidenav>
+    <ng-view flex></ng-view>
+</body>
+
+<script src="app.js"></script>
+
+<style>
+    html {
+        font-size: 62.5%;
+        line-height: 1.4;
+    }
+
+    body {
+        font-size: 1.6rem;
+    }
+
+    md-nav-bar .md-nav-bar {
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    ._md-nav-bar-list {
+        flex-direction: column;
+    }
+
+    .md-nav-item {
+        margin-left: 0px !important;
+    }
+
+    .md-button.md-accent {
+        color: black;
+    }
+
+    .md-button._md-nav-button {
+        width: 100%;
+        margin:0px;
+        padding:0px;
+        text-align:left;
+    }
+
+    button.md-button.ng-scope {
+        text-align:left;
+        font-size:1.6rem !important;
+        padding:5px 25px;
+        text-transform: none;
+    }
+
+    a, u {
+    text-decoration: none;
+}
+
+</style>
+
+
+</html>
